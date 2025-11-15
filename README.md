@@ -12,7 +12,7 @@ Aplikasi ini dilengkapi dengan fitur **Dual Mode (Light & Dark Mode)** yang dina
 
 ---
 
-## 🌟 Fitur Utama
+## Fitur Utama
 
 * **Metode Certainty Factor (CF):** Perhitungan berbasis bobot pakar dan keyakinan pengguna untuk hasil diagnosis yang terukur (persentase).
 * **Dual Mode:** Mendukung Mode Terang (Light Mode) dan Mode Gelap (Dark Mode) yang dapat diaktifkan melalui tombol toggle, dengan preferensi disimpan di *browser* (localStorage).
@@ -22,7 +22,7 @@ Aplikasi ini dilengkapi dengan fitur **Dual Mode (Light & Dark Mode)** yang dina
 
 ---
 
-## 🛠️ Persyaratan Sistem
+## Persyaratan Sistem
 
 Untuk menjalankan aplikasi ini secara lokal, Anda membutuhkan lingkungan server web yang mendukung PHP dan MySQL, seperti:
 
@@ -86,7 +86,7 @@ http://localhost/nama_folder_proyek_anda/
 
 -----
 
-## 📁 Struktur Proyek
+## Struktur Proyek
 
 Struktur folder proyek ini dirancang untuk pemisahan tugas (Separation of Concerns) yang jelas:
 
@@ -113,9 +113,7 @@ Jika Anda menemukan *bug* atau memiliki saran perbaikan, jangan ragu untuk membu
 
 -----
 
-*Dibuat oleh: [Rahmat Eka Satria]*
-*Institusi: [Universitas Pamulang]*
-*Berdasarkan penelitian: [https://jsisfotek.org/index.php/JSisfotek/article/view/70/70]*
+*Dibuat oleh: *Rahmat Eka Satria*
+*Institusi: Universitas Pamulang*
+*Berdasarkan penelitian: https://jsisfotek.org/index.php/JSisfotek/article/view/70/70*
 
-```
-```
