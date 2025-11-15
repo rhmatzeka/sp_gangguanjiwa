@@ -1,0 +1,322 @@
+/* =================================================== */
+/* 0. GLOBAL & BOX SIZING FIX */
+/* =================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* =================================================== */
+/* 1. CSS VARIABLES (Tema Warna) */
+/* =================================================== */
+:root {
+    /* Mode Terang (Light Mode - Default) */
+    --color-bg-primary: #f7f9fc;
+    --color-bg-secondary: #ffffff; /* Card background */
+    --color-text-primary: #2c3e50;
+    --color-text-secondary: #5a5a5a;
+    --color-accent: #4CAF50; /* Hijau Utama */
+    --color-accent-dark: #008000;
+    --color-border: #e0e0e0;
+    --color-shadow: rgba(0, 0, 0, 0.08);
+}
+
+.dark-mode {
+    /* Mode Gelap (Dark Mode) */
+    --color-bg-primary: #121212;
+    --color-bg-secondary: #1e1e1e;
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #aaaaaa;
+    --color-accent: #66BB6A; /* Hijau cerah untuk kontras */
+    --color-accent-dark: #388E3C;
+    --color-border: #333333;
+    --color-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* =================================================== */
+/* 2. BASE STYLES & LAYOUT */
+/* =================================================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* FIX: Menghilangkan scroll horizontal */
+    
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--color-text-primary);
+}
+
+/* =================================================== */
+/* ANIMASI & INTERAKTIVITAS (Dinamis & Interaktif) */
+/* =================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0; 
+}
+
+.submit-btn:hover {
+    box-shadow: 0 8px 20px rgba(0, 128, 0, 0.4);
+    transform: translateY(-3px);
+}
+.gejala-item:hover {
+    box-shadow: 0 4px 15px var(--color-shadow);
+    transform: scale(1.01);
+}
+
+/* =================================================== */
+/* HERO SECTION & VIDEO BACKGROUND */
+/* =================================================== */
+.hero-section {
+    position: relative;
+    height: 70vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 20px var(--color-shadow);
+}
+
+#video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 48, 48, 0.75);
+    z-index: 1;
+}
+
+.dark-mode .video-overlay {
+    background: rgba(0, 0, 0, 0.85); 
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    font-weight: 700;
+    color: white; /* Tetap putih di atas overlay */
+}
+
+/* =================================================== */
+/* CARD & PROFIL PENGEMBANG (FIXED FLEXBOX) */
+/* =================================================== */
+.card {
+    background: var(--color-bg-secondary);
+    padding: 35px;
+    margin-bottom: 30px;
+    border-radius: 18px; 
+    box-shadow: 0 5px 25px var(--color-shadow);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.profile-card {
+    display: flex; /* FIX: Memastikan tata letak horizontal */
+    gap: 30px;
+    align-items: center;
+}
+
+.profile-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--color-accent);
+    box-shadow: 0 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.profile-info h3 {
+    margin-top: 0;
+    color: var(--color-accent-dark);
+    font-weight: 600;
+}
+
+/* =================================================== */
+/* FORM DAN KONSULTASI (FIXED FLEXBOX) */
+/* =================================================== */
+.gejala-item {
+    background: var(--color-bg-secondary);
+    padding: 18px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    display: flex; /* FIX: Memastikan label dan select sejajar */
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.gejala-item label {
+    font-weight: 500;
+    color: var(--color-text-primary);
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.gejala-item select {
+    padding: 10px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-size: 1em;
+    min-width: 250px;
+    transition: border-color 0.3s;
+}
+
+.gejala-item.is-selected {
+    border-left-color: var(--color-accent);
+    background-color: var(--color-bg-primary);
+}
+
+/* Tombol Submit */
+.submit-btn {
+    padding: 18px;
+    background-color: var(--color-accent-dark);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+/* =================================================== */
+/* HASIL DIAGNOSIS & FOOTER */
+/* =================================================== */
+.result-card {
+    border-left: 8px solid var(--color-accent);
+    background-color: var(--color-bg-secondary);
+}
+
+.diagnosis-box {
+    background-color: var(--color-accent-dark);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0, 128, 0, 0.3);
+}
+
+.note {
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+    border-left: 4px solid #ffcc00;
+    padding-left: 15px;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center; /* FIX: Menengahkan teks */
+    padding: 20px;
+    margin-top: 50px;
+    background-color: var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: 0.9em;
+    width: 100%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.gua {
+    text-decoration: none;
+    color: #000000;
+    padding: 5px;
+}
+
+.gua:hover {
+    color: #1c1c1c;
+    transition: 0.5s;
+    border: 1px solid #0b0b0b;
+    border-radius: 20px;
+}
+
+/* =================================================== */
+/* DARK MODE TOGGLE BUTTON */
+/* =================================================== */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 12px var(--color-shadow);
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.2s;
+}
+#theme-toggle:hover {
+    background-color: var(--color-accent-dark);
+    transform: scale(1.05);
+}
+
+/* =================================================== */
+/* RESPONSIVITAS */
+/* =================================================== */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .profile-card {
+        flex-direction: column; /* Tumpuk vertikal di mobile */
+        text-align: center;
+    }
+    .gejala-item {
+        flex-direction: column; /* Tumpuk vertikal di mobile */
+        align-items: flex-start;
+    }
+    .gejala-item select {
+        width: 100%;
+        min-width: 100%;
+        margin-top: 10px;
+    }
+}
